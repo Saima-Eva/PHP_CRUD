@@ -103,6 +103,7 @@ echo $result_student -> num_rows;
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Age</th>
+                <th>Action</th>
               </tr>
               <?php if($result_student -> num_rows > 0){ ?>
                 <?php while($student_row = $result_student -> fetch_assoc()){ ?>
@@ -117,11 +118,18 @@ echo $result_student -> num_rows;
                   ?>
                   </td>
                 <td><?php echo $student_row['age']; ?></td>
-                
+                <td>
+                  <a href="lib/edit.php?id=<?php
+                      echo $student_row['id'];
+                  ?>">Edit</a>
+                  <a href="lib/delete.php?id=<?php
+                     echo $student_row['id'];
+                   ?>">Delete</a>
+                </td>
               <?php } ?>
               <?php } else{ ?>
                 <tr>
-                  <td colspan="4"> no data to show</td>
+                  <td colspan="5"> no data to show</td>
                 </tr>
                 <?php } ?>
             </table>
