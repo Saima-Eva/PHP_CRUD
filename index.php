@@ -1,5 +1,18 @@
 <?php
 
+session_start();
+
+
+if(isset($_SESSION['auth'])){
+   if($_SESSION['auth']!=1){
+      header("location:login.php");
+   }
+}
+else{
+  header("location:login.php");
+}
+
+
 include "lib/connection.php";
 
 //insertSql start
@@ -135,7 +148,8 @@ echo $result_student -> num_rows;
             </table>
           </div>
           <!-- student data -->
-        </div>
+          </div>
+        <a href="logout.php">Logout</a>
       </div>
     </div>
 
